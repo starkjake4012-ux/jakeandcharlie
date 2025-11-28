@@ -23,7 +23,12 @@
       --gold: #ffd166;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       min-height: 100vh;
       font-family: "Poppins", sans-serif;
@@ -32,10 +37,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      overflow: hidden;
+      padding: 16px;
+      overflow-x: hidden;
       position: relative;
     }
+
     body::before {
       content: "";
       position: absolute;
@@ -96,17 +102,17 @@
     }
 
     .container {
-      max-width: 480px;
       width: 100%;
+      max-width: 460px;
       background: var(--card-bg);
-      border-radius: 28px;
+      border-radius: 24px;
       border: 1px solid var(--card-border);
-      padding: 28px 24px 24px;
+      padding: 22px 18px 18px;
       text-align: center;
       box-shadow: var(--shadow-soft);
       backdrop-filter: blur(18px);
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .container::before {
@@ -123,9 +129,9 @@
 
     .garland {
       position: absolute;
-      top: 10px;
-      left: 16px;
-      right: 16px;
+      top: 8px;
+      left: 14px;
+      right: 14px;
       height: 20px;
       pointer-events: none;
     }
@@ -166,9 +172,9 @@
     }
 
     .heart {
-      width: 76px;
-      height: 76px;
-      margin: 22px auto 14px;
+      width: 70px;
+      height: 70px;
+      margin: 26px auto 10px;
       position: relative;
     }
 
@@ -176,8 +182,8 @@
     .heart::after {
       content: "";
       position: absolute;
-      width: 40px;
-      height: 60px;
+      width: 36px;
+      height: 52px;
       background: linear-gradient(135deg, #ff6b6b, #c81d25);
       border-radius: 40px 40px 0 0;
       top: 8px;
@@ -185,7 +191,7 @@
     }
 
     .heart::before {
-      left: 22px;
+      left: 20px;
       transform: rotate(-45deg);
       transform-origin: 0 100%;
     }
@@ -211,22 +217,25 @@
 
     .script-title {
       font-family: "Sacramento", cursive;
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: 4px;
       color: var(--gold);
       text-shadow: 0 0 8px rgba(255, 209, 102, 0.7);
     }
 
-    h1 { font-size: 1.6rem; font-weight: 600; margin-bottom: 8px; }
-    .subtitle { font-size: 0.9rem; color: var(--text-subtle); margin-bottom: 20px; }
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-subtle);
+      margin-bottom: 16px;
+    }
 
     .counter-card {
       background: radial-gradient(circle at top, rgba(255, 255, 255, 0.14), rgba(10, 18, 35, 0.95));
       border-radius: 18px;
-      padding: 20px 18px 18px;
+      padding: 16px 14px 14px;
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 16px 30px rgba(0, 0, 0, 0.65);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       position: relative;
       overflow: hidden;
     }
@@ -234,14 +243,14 @@
     .counter-card::before {
       content: "🎄";
       position: absolute;
-      font-size: 3.3rem;
+      font-size: 3.1rem;
       right: -6px;
       top: -12px;
       opacity: 0.18;
     }
 
     .label {
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       font-weight: 500;
@@ -250,53 +259,55 @@
     }
 
     .days {
-      font-size: 2.6rem;
+      font-size: 2.3rem;
       font-weight: 700;
       line-height: 1.05;
     }
 
     .days span {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 500;
       margin-left: 4px;
     }
 
     .time-detail {
       margin-top: 6px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-subtle);
     }
 
     .details {
-      margin-top: 12px;
+      margin-top: 10px;
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
     }
 
     .detail-pill {
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 999px;
       background: var(--accent-soft);
       border: 1px solid rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       white-space: nowrap;
     }
 
-    .detail-pill strong { font-weight: 600; }
+    .detail-pill strong {
+      font-weight: 600;
+    }
 
     .detail-pill:nth-child(1)::before { content: "🕯️"; }
     .detail-pill:nth-child(2)::before { content: "🎁"; }
     .detail-pill:nth-child(3)::before { content: "⭐"; }
 
     .date-row {
-      font-size: 0.9rem;
-      margin-bottom: 8px;
+      font-size: 0.86rem;
+      margin-bottom: 6px;
       color: var(--text-subtle);
     }
 
@@ -307,7 +318,7 @@
 
     .footer-note {
       font-size: 0.8rem;
-      margin-top: 4px;
+      margin-bottom: 4px;
       color: var(--text-subtle);
     }
 
@@ -325,17 +336,17 @@
       justify-content: center;
       gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .tab-button {
-      padding: 7px 16px;
+      padding: 6px 14px;
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.7);
       background: linear-gradient(135deg, #e63946, #4caf50);
       color: #ffffff;
       font-family: "Poppins", sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
       opacity: 0.85;
@@ -346,176 +357,196 @@
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6), 0 8px 18px rgba(0, 0, 0, 0.6);
     }
 
-    .tab-panel {
-      display: none;
+    .tab-panels {
+      margin-top: 4px;
+      text-align: left;
       font-size: 0.9rem;
       color: var(--text-subtle);
-      text-align: left;
-      padding: 4px;
-      max-height: 260px;
-      overflow-y: auto;
+    }
+
+    .tab-panel {
+      display: none;
     }
 
     .tab-panel.active {
       display: block;
     }
-    
- .gallery-grid {
-  margin-top: 4px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 8px;
-}
 
-.gallery-item {
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-  overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
+    .gallery-grid {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 8px;
+    }
 
-.gallery-item img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .gallery-item {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
 
-.lightbox-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-  z-index: 999;
-  padding: 16px;
-}
+    .gallery-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.lightbox-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 999;
+      padding: 16px;
+    }
 
-.lightbox-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  text-align: center;
-}
+    .lightbox-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-.lightbox-img {
-  max-width: 100%;
-  max-height: 70vh;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
-}
+    .lightbox-content {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+      text-align: center;
+    }
 
-.lightbox-caption {
-  margin-top: 8px;
-  color: #ffffff;
-  font-size: 0.9rem;
-}
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 70vh;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+    }
 
-.lightbox-close {
-  position: absolute;
-  top: -10px;
-  right: -4px;
-  font-size: 1.6rem;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 4px 10px;
-}
+    .lightbox-caption {
+      margin-top: 8px;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
 
+    .lightbox-close {
+      position: absolute;
+      top: -10px;
+      right: -4px;
+      font-size: 1.6rem;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 4px 10px;
+    }
 
-.calendar-header {
-  font-size: 0.92rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #e5f2ff;
-}
+    .calendar-header {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #e5f2ff;
+    }
 
-.calendar-timeline {
-  position: relative;
-  padding-left: 18px;
-  margin-top: 4px;
-}
+    .calendar-timeline {
+      position: relative;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
 
-.calendar-timeline::before {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 4px;
-  bottom: 4px;
-  width: 2px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(230, 57, 70, 0.5));
-  opacity: 0.9;
-}
+    .calendar-timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(230, 57, 70, 0.5));
+      opacity: 0.9;
+    }
 
-.calendar-entry {
-  position: relative;
-  margin-bottom: 12px;
-  padding: 8px 10px 8px 12px;
-  border-radius: 12px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
-}
+    .calendar-entry {
+      position: relative;
+      margin-bottom: 12px;
+      padding: 8px 10px 8px 12px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+    }
 
-.calendar-entry::before {
-  content: "";
-  position: absolute;
-  left: -11px;
-  top: 10px;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #ffd166;
-  box-shadow: 0 0 10px rgba(255, 209, 102, 0.9);
-}
+    .calendar-entry::before {
+      content: "";
+      position: absolute;
+      left: -11px;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #ffd166;
+      box-shadow: 0 0 10px rgba(255, 209, 102, 0.9);
+    }
 
-.entry-date {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgba(226, 232, 240, 0.9);
-  margin-bottom: 2px;
-}
+    .entry-date {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(226, 232, 240, 0.9);
+      margin-bottom: 2px;
+    }
 
-.entry-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 3px;
-}
+    .entry-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
 
-.entry-body {
-  font-size: 0.85rem;
-  color: rgba(226, 232, 240, 0.9);
-}
+    .entry-body {
+      font-size: 0.85rem;
+      color: rgba(226, 232, 240, 0.9);
+    }
 
-
-
-    @media (max-width: 480px) {
-      .container { padding: 24px 18px 20px; border-radius: 24px; }
-      .script-title { font-size: 2rem; }
-      .days { font-size: 2.4rem; }
+    @media (min-width: 600px) {
+      body {
+        padding: 24px;
+      }
+      .container {
+        padding: 26px 22px 20px;
+        border-radius: 26px;
+      }
+      .days {
+        font-size: 2.6rem;
+      }
+      .tab-panels {
+        max-height: 260px;
+        overflow-y: auto;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
 
-  <div class="snowflake">❄</div><div class="snowflake">✻</div><div class="snowflake">❅</div><div class="snowflake">✼</div><div class="snowflake">❄</div><div class="snowflake">✻</div><div class="snowflake">❅</div>
+  <div class="snowflake">❄</div>
+  <div class="snowflake">✻</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">✼</div>
+  <div class="snowflake">❄</div>
+  <div class="snowflake">✻</div>
+  <div class="snowflake">❅</div>
 
   <div class="container">
     <div class="garland">
@@ -527,7 +558,9 @@
       <div class="bulb red"></div>
     </div>
 
-    <div class="heart"><div class="heart-pulse"></div></div>
+    <div class="heart">
+      <div class="heart-pulse"></div>
+    </div>
 
     <div class="script-title">Charlie & Jake</div>
     <p class="subtitle">Counting every day I’ve had you by my side since 19 November.</p>
@@ -536,7 +569,6 @@
       <div class="label">Time with you</div>
       <div class="days" id="daysTogether">0<span>days</span></div>
       <div class="time-detail" id="timeDetail">0 hours 0 minutes 0 seconds</div>
-
       <div class="details">
         <div class="detail-pill"><strong id="weeksTogether">0</strong> weeks</div>
         <div class="detail-pill"><strong id="monthsTogether">0</strong> months</div>
@@ -545,7 +577,6 @@
     </div>
 
     <p class="date-row">Since: <span id="sinceDateText">19 November</span></p>
-
     <p class="footer-note">Made with <span>love</span> (and a sprinkle of my nerdy code). ✨</p>
 
     <div class="tabs">
@@ -553,42 +584,51 @@
         <button class="tab-button active" data-tab="gallery">gallery</button>
         <button class="tab-button" data-tab="calendar">calendar</button>
       </div>
-      <div class="tab-panel active" id="galleryPanel">
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="https://i.postimg.cc/D0SnLPQ1/5AD2CD60-D5C5-4C70-87E6-735927231422.jpg" alt="Charlie & Jake 1" data-caption="The day I asked you out">
-    </div>
-    <div class="gallery-item">
-      <img src="https://i.postimg.cc/bv4K4f1N/IMG-0662.avif" alt="Charlie & Jake 2" data-caption="Chilling at yours.">
-    </div>
-    <div class="gallery-item">
-      <img src="https://i.postimg.cc/hPgqSn6J/IMG-0852.jpg" alt="Charlie & Jake 3" data-caption="our first date.">
-    </div>
-  </div>
-</div>
 
-      </div>
-      <div class="tab-panel" id="calendarPanel">
-  <div class="calendar-header">our little timeline ✨</div>
-  <div class="calendar-timeline">
-    <div class="calendar-entry">
-      <div class="entry-date">19 Nov 2025</div>
-      <div class="entry-title">The night everything became official</div>
-      <div class="entry-body">
-        In way too posh of a resturant, and I was in the stupdiest clothes, being unable to kiss in a posh resturant is a myth, and we proved that :)
+      <div class="tab-panels">
+        <div class="tab-panel active" id="galleryPanel">
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img src="https://i.postimg.cc/D0SnLPQ1/5AD2CD60-D5C5-4C70-87E6-735927231422.jpg" alt="Charlie & Jake 1" data-caption="The day I asked you out.">
+            </div>
+            <div class="gallery-item">
+              <img src="https://i.postimg.cc/bv4K4f1N/IMG-0662.avif" alt="Charlie & Jake 2" data-caption="Chilling at yours.">
+            </div>
+            <div class="gallery-item">
+              <img src="https://i.postimg.cc/hPgqSn6J/IMG-0852.jpg" alt="Charlie & Jake 3" data-caption="Our first date.">
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="calendarPanel">
+          <div class="calendar-header">our little timeline ✨</div>
+          <div class="calendar-timeline">
+            <div class="calendar-entry">
+              <div class="entry-date">19 Nov 2025</div>
+              <div class="entry-title">The night everything became official</div>
+              <div class="entry-body">
+                In way too posh of a restaurant, and I was in the stupidest clothes, being unable to kiss in a posh restaurant is a myth, and we proved that :)
+              </div>
+            </div>
+
+            <div class="calendar-entry">
+              <div class="entry-date">27 Nov 2025</div>
+              <div class="entry-title">Sleepover</div>
+              <div class="entry-body">
+                Our first little sleepover, and Tipple’s Christmas shop :)
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="calendar-entry">
-      <div class="entry-date">27th November</div>
-      <div class="entry-title">Sleepover</div>
-      <div class="entry-body">
-        Our first little sleepover, and tipples christmas shop :)
+    <div class="lightbox-overlay" id="lightbox">
+      <div class="lightbox-content">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
       </div>
-    </div>
-  </div>
-</div>
-
     </div>
   </div>
 
@@ -643,20 +683,18 @@
     setInterval(updateCounter, 1000);
 
     const tabButtons = document.querySelectorAll(".tab-button");
-    const galleryPanel = document.getElementById("galleryPanel");
-    const calendarPanel = document.getElementById("calendarPanel");
+    const tabPanels = document.querySelectorAll(".tab-panel");
 
     function setActiveTab(tab) {
       tabButtons.forEach(b => b.classList.remove("active"));
-      galleryPanel.classList.remove("active");
-      calendarPanel.classList.remove("active");
+      tabPanels.forEach(p => p.classList.remove("active"));
 
-      if (tab === "gallery") {
-        document.querySelector('.tab-button[data-tab="gallery"]').classList.add("active");
-        galleryPanel.classList.add("active");
-      } else {
-        document.querySelector('.tab-button[data-tab="calendar"]').classList.add("active");
-        calendarPanel.classList.add("active");
+      const button = document.querySelector(`.tab-button[data-tab="${tab}"]`);
+      const panel = document.getElementById(tab + "Panel");
+
+      if (button && panel) {
+        button.classList.add("active");
+        panel.classList.add("active");
       }
     }
 
@@ -665,6 +703,30 @@
         const tab = button.getAttribute("data-tab");
         setActiveTab(tab);
       });
+    });
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    document.querySelectorAll(".gallery-item img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || "";
+        lightboxCaption.textContent = img.getAttribute("data-caption") || "";
+        lightbox.classList.add("open");
+      });
+    });
+
+    lightboxClose.addEventListener("click", () => {
+      lightbox.classList.remove("open");
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("open");
+      }
     });
   </script>
 </body>
