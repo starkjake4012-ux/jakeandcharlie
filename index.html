@@ -632,12 +632,10 @@
     <div class="lock-card">
       <div class="lock-title">Charlie & Jake</div>
       <div class="lock-subtitle">little private christmas corner 🎄</div>
-      <form id="lockForm">
-        <input type="password" id="lockPassword" class="lock-input" placeholder="enter the secret" autocomplete="off" />
-        <button type="submit" class="lock-button">let me in</button>
-        <div class="lock-error" id="lockError"></div>
-        <div class="lock-note">only people who know the secret word can see this.</div>
-      </form>
+      <input type="password" id="lockPassword" class="lock-input" placeholder="enter the secret" autocomplete="off" />
+      <button type="button" id="lockButton" class="lock-button">let me in</button>
+      <div class="lock-error" id="lockError"></div>
+      <div class="lock-note">only people who know the secret word can see this.</div>
     </div>
   </div>
 
@@ -827,17 +825,14 @@
     const PASSWORD = "charlie123";
 
     const lockOverlay = document.getElementById("lockOverlay");
-    const lockForm = document.getElementById("lockForm");
     const lockPasswordInput = document.getElementById("lockPassword");
+    const lockButton = document.getElementById("lockButton");
     const lockError = document.getElementById("lockError");
     const mainContent = document.getElementById("mainContent");
 
-    lockForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const value = lockPasswordInput.value.trim().toLowerCase();
-      const correct = PASSWORD.toLowerCase();
-
-      if (value === correct) {
+    function tryUnlock() {
+      const value = lockPasswordInput.value.trim();
+      if (value.toLowerCase() === PASSWORD.toLowerCase()) {
         lockOverlay.style.display = "none";
         mainContent.style.display = "block";
         lockPasswordInput.value = "";
@@ -846,6 +841,14 @@
         lockError.textContent = "that’s not the secret. try again ❤️";
         lockPasswordInput.value = "";
         lockPasswordInput.focus();
+      }
+    }
+
+    lockButton.addEventListener("click", tryUnlock);
+
+    lockPasswordInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        tryUnlock();
       }
     });
   </script>
