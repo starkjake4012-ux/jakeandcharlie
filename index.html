@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Charlie & Jake 💕</title>
+  <title>Charlie & Jake 🎄💕</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -513,10 +513,6 @@
       color: rgba(226, 232, 240, 0.9);
     }
 
-    .hidden {
-      display: none;
-    }
-
     .lock-overlay {
       position: fixed;
       inset: 0;
@@ -593,13 +589,9 @@
       margin-top: 6px;
     }
 
-    #lockOverlay {
-  display: flex;
-}
-
-#mainContent {
-  display: none;
-}
+    #mainContent {
+      display: none;
+    }
 
     @media (min-width: 600px) {
       body {
@@ -639,7 +631,7 @@
   <div class="lock-overlay" id="lockOverlay">
     <div class="lock-card">
       <div class="lock-title">Charlie & Jake</div>
-      <div class="lock-subtitle">little private corner</div>
+      <div class="lock-subtitle">little private christmas corner 🎄</div>
       <form id="lockForm">
         <input type="password" id="lockPassword" class="lock-input" placeholder="enter the secret" autocomplete="off" />
         <button type="submit" class="lock-button">let me in</button>
@@ -649,7 +641,7 @@
     </div>
   </div>
 
-  <div id="mainContent"">
+  <div id="mainContent">
     <div class="container">
       <div class="garland">
         <div class="garland-line"></div>
@@ -736,126 +728,125 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const START_DATE = new Date(2025, 10, 19, 19, 21, 32);
+    const START_DATE = new Date(2025, 10, 19, 19, 21, 32);
 
-      const daysEl = document.getElementById("daysTogether");
-      const weeksEl = document.getElementById("weeksTogether");
-      const monthsEl = document.getElementById("monthsTogether");
-      const yearsEl = document.getElementById("yearsTogether");
-      const sinceTextEl = document.getElementById("sinceDateText");
-      const timeDetailEl = document.getElementById("timeDetail");
+    const daysEl = document.getElementById("daysTogether");
+    const weeksEl = document.getElementById("weeksTogether");
+    const monthsEl = document.getElementById("monthsTogether");
+    const yearsEl = document.getElementById("yearsTogether");
+    const sinceTextEl = document.getElementById("sinceDateText");
+    const timeDetailEl = document.getElementById("timeDetail");
 
-      function updateCounter() {
-        const now = new Date();
-        let diffMs = now - START_DATE;
-        if (diffMs < 0) diffMs = 0;
+    function updateCounter() {
+      const now = new Date();
+      let diffMs = now - START_DATE;
+      if (diffMs < 0) diffMs = 0;
 
-        const totalSeconds = Math.floor(diffMs / 1000);
-        const daySeconds = 24 * 60 * 60;
+      const totalSeconds = Math.floor(diffMs / 1000);
+      const daySeconds = 24 * 60 * 60;
 
-        const days = Math.floor(totalSeconds / daySeconds);
-        let remaining = totalSeconds % daySeconds;
-        const hours = Math.floor(remaining / 3600);
-        remaining = remaining % 3600;
-        const minutes = Math.floor(remaining / 60);
-        const seconds = remaining % 60;
+      const days = Math.floor(totalSeconds / daySeconds);
+      let remaining = totalSeconds % daySeconds;
+      const hours = Math.floor(remaining / 3600);
+      remaining = remaining % 3600;
+      const minutes = Math.floor(remaining / 60);
+      const seconds = remaining % 60;
 
-        daysEl.innerHTML = `${days}<span>days</span>`;
-        timeDetailEl.textContent = `${hours} hours ${minutes} minutes ${seconds} seconds`;
+      daysEl.innerHTML = `${days}<span>days</span>`;
+      timeDetailEl.textContent = `${hours} hours ${minutes} minutes ${seconds} seconds`;
 
-        const weeks = totalSeconds / (7 * daySeconds);
-        const monthsApprox = totalSeconds / (30.4375 * daySeconds);
-        const yearsApprox = totalSeconds / (365.25 * daySeconds);
+      const weeks = totalSeconds / (7 * daySeconds);
+      const monthsApprox = totalSeconds / (30.4375 * daySeconds);
+      const yearsApprox = totalSeconds / (365.25 * daySeconds);
 
-        weeksEl.textContent = weeks.toFixed(1);
-        monthsEl.textContent = monthsApprox.toFixed(1);
-        yearsEl.textContent = yearsApprox.toFixed(2);
+      weeksEl.textContent = weeks.toFixed(1);
+      monthsEl.textContent = monthsApprox.toFixed(1);
+      yearsEl.textContent = yearsApprox.toFixed(2);
 
-        const options = {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit"
-        };
-        sinceTextEl.textContent = START_DATE.toLocaleDateString(undefined, options);
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      };
+      sinceTextEl.textContent = START_DATE.toLocaleDateString(undefined, options);
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    function setActiveTab(tab) {
+      tabButtons.forEach(b => b.classList.remove("active"));
+      tabPanels.forEach(p => p.classList.remove("active"));
+
+      const button = document.querySelector(`.tab-button[data-tab="${tab}"]`);
+      const panel = document.getElementById(tab + "Panel");
+
+      if (button && panel) {
+        button.classList.add("active");
+        panel.classList.add("active");
       }
+    }
 
-      updateCounter();
-      setInterval(updateCounter, 1000);
-
-      const tabButtons = document.querySelectorAll(".tab-button");
-      const tabPanels = document.querySelectorAll(".tab-panel");
-
-      function setActiveTab(tab) {
-        tabButtons.forEach(b => b.classList.remove("active"));
-        tabPanels.forEach(p => p.classList.remove("active"));
-
-        const button = document.querySelector(`.tab-button[data-tab="${tab}"]`);
-        const panel = document.getElementById(tab + "Panel");
-
-        if (button && panel) {
-          button.classList.add("active");
-          panel.classList.add("active");
-        }
-      }
-
-      tabButtons.forEach(button => {
-        button.addEventListener("click", () => {
-          const tab = button.getAttribute("data-tab");
-          setActiveTab(tab);
-        });
+    tabButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const tab = button.getAttribute("data-tab");
+        setActiveTab(tab);
       });
+    });
 
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightboxImg");
-      const lightboxCaption = document.getElementById("lightboxCaption");
-      const lightboxClose = document.getElementById("lightboxClose");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
 
-      document.querySelectorAll(".gallery-item img").forEach(img => {
-        img.addEventListener("click", () => {
-          lightboxImg.src = img.src;
-          lightboxImg.alt = img.alt || "";
-          lightboxCaption.textContent = img.getAttribute("data-caption") || "";
-          lightbox.classList.add("open");
-        });
+    document.querySelectorAll(".gallery-item img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || "";
+        lightboxCaption.textContent = img.getAttribute("data-caption") || "";
+        lightbox.classList.add("open");
       });
+    });
 
-      lightboxClose.addEventListener("click", () => {
+    lightboxClose.addEventListener("click", () => {
+      lightbox.classList.remove("open");
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
         lightbox.classList.remove("open");
-      });
+      }
+    });
 
-      lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-          lightbox.classList.remove("open");
-        }
-      });
+    const PASSWORD = "charlie123";
 
-      const PASSWORD = "charlie123";
+    const lockOverlay = document.getElementById("lockOverlay");
+    const lockForm = document.getElementById("lockForm");
+    const lockPasswordInput = document.getElementById("lockPassword");
+    const lockError = document.getElementById("lockError");
+    const mainContent = document.getElementById("mainContent");
 
-      const lockOverlay = document.getElementById("lockOverlay");
-      const lockForm = document.getElementById("lockForm");
-      const lockPasswordInput = document.getElementById("lockPassword");
-      const lockError = document.getElementById("lockError");
-      const mainContent = document.getElementById("mainContent");
+    lockForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const value = lockPasswordInput.value.trim().toLowerCase();
+      const correct = PASSWORD.toLowerCase();
 
-      lockForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const value = lockPasswordInput.value.trim().toLowerCase();
-        const correct = PASSWORD.toLowerCase();
-        if (value === correct) {
-          lockOverlay.classList.add("hidden");
-          mainContent.classList.remove("hidden");
-          lockPasswordInput.value = "";
-          lockError.textContent = "";
-        } else {
-          lockError.textContent = "that’s not the secret. try again ❤️";
-          lockPasswordInput.value = "";
-          lockPasswordInput.focus();
-        }
-      });
+      if (value === correct) {
+        lockOverlay.style.display = "none";
+        mainContent.style.display = "block";
+        lockPasswordInput.value = "";
+        lockError.textContent = "";
+      } else {
+        lockError.textContent = "that’s not the secret. try again ❤️";
+        lockPasswordInput.value = "";
+        lockPasswordInput.focus();
+      }
     });
   </script>
 </body>
