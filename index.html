@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -628,7 +627,7 @@
   <div class="snowflake">❄</div>
   <div class="snowflake">✻</div>
   <div class="snowflake">❅</div>
-  
+
   <div class="lock-overlay" id="lockOverlay">
     <div class="lock-card">
       <div class="lock-title">Charlie & Jake</div>
@@ -729,125 +728,127 @@
   </div>
 
   <script>
-    const START_DATE = new Date(2025, 10, 19, 19, 21, 32);
+    document.addEventListener("DOMContentLoaded", function () {
+      const START_DATE = new Date(2025, 10, 19, 19, 21, 32);
 
-    const daysEl = document.getElementById("daysTogether");
-    const weeksEl = document.getElementById("weeksTogether");
-    const monthsEl = document.getElementById("monthsTogether");
-    const yearsEl = document.getElementById("yearsTogether");
-    const sinceTextEl = document.getElementById("sinceDateText");
-    const timeDetailEl = document.getElementById("timeDetail");
+      const daysEl = document.getElementById("daysTogether");
+      const weeksEl = document.getElementById("weeksTogether");
+      const monthsEl = document.getElementById("monthsTogether");
+      const yearsEl = document.getElementById("yearsTogether");
+      const sinceTextEl = document.getElementById("sinceDateText");
+      const timeDetailEl = document.getElementById("timeDetail");
 
-    function updateCounter() {
-      const now = new Date();
-      let diffMs = now - START_DATE;
-      if (diffMs < 0) diffMs = 0;
+      function updateCounter() {
+        const now = new Date();
+        let diffMs = now - START_DATE;
+        if (diffMs < 0) diffMs = 0;
 
-      const totalSeconds = Math.floor(diffMs / 1000);
-      const daySeconds = 24 * 60 * 60;
+        const totalSeconds = Math.floor(diffMs / 1000);
+        const daySeconds = 24 * 60 * 60;
 
-      const days = Math.floor(totalSeconds / daySeconds);
-      let remaining = totalSeconds % daySeconds;
-      const hours = Math.floor(remaining / 3600);
-      remaining = remaining % 3600;
-      const minutes = Math.floor(remaining / 60);
-      const seconds = remaining % 60;
+        const days = Math.floor(totalSeconds / daySeconds);
+        let remaining = totalSeconds % daySeconds;
+        const hours = Math.floor(remaining / 3600);
+        remaining = remaining % 3600;
+        const minutes = Math.floor(remaining / 60);
+        const seconds = remaining % 60;
 
-      daysEl.innerHTML = `${days}<span>days</span>`;
-      timeDetailEl.textContent = `${hours} hours ${minutes} minutes ${seconds} seconds`;
+        daysEl.innerHTML = `${days}<span>days</span>`;
+        timeDetailEl.textContent = `${hours} hours ${minutes} minutes ${seconds} seconds`;
 
-      const weeks = totalSeconds / (7 * daySeconds);
-      const monthsApprox = totalSeconds / (30.4375 * daySeconds);
-      const yearsApprox = totalSeconds / (365.25 * daySeconds);
+        const weeks = totalSeconds / (7 * daySeconds);
+        const monthsApprox = totalSeconds / (30.4375 * daySeconds);
+        const yearsApprox = totalSeconds / (365.25 * daySeconds);
 
-      weeksEl.textContent = weeks.toFixed(1);
-      monthsEl.textContent = monthsApprox.toFixed(1);
-      yearsEl.textContent = yearsApprox.toFixed(2);
+        weeksEl.textContent = weeks.toFixed(1);
+        monthsEl.textContent = monthsApprox.toFixed(1);
+        yearsEl.textContent = yearsApprox.toFixed(2);
 
-      const options = {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit"
-      };
-      sinceTextEl.textContent = START_DATE.toLocaleDateString(undefined, options);
-    }
-
-    updateCounter();
-    setInterval(updateCounter, 1000);
-
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabPanels = document.querySelectorAll(".tab-panel");
-
-    function setActiveTab(tab) {
-      tabButtons.forEach(b => b.classList.remove("active"));
-      tabPanels.forEach(p => p.classList.remove("active"));
-
-      const button = document.querySelector(`.tab-button[data-tab="${tab}"]`);
-      const panel = document.getElementById(tab + "Panel");
-
-      if (button && panel) {
-        button.classList.add("active");
-        panel.classList.add("active");
+        const options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit"
+        };
+        sinceTextEl.textContent = START_DATE.toLocaleDateString(undefined, options);
       }
-    }
 
-    tabButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const tab = button.getAttribute("data-tab");
-        setActiveTab(tab);
+      updateCounter();
+      setInterval(updateCounter, 1000);
+
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabPanels = document.querySelectorAll(".tab-panel");
+
+      function setActiveTab(tab) {
+        tabButtons.forEach(b => b.classList.remove("active"));
+        tabPanels.forEach(p => p.classList.remove("active"));
+
+        const button = document.querySelector(`.tab-button[data-tab="${tab}"]`);
+        const panel = document.getElementById(tab + "Panel");
+
+        if (button && panel) {
+          button.classList.add("active");
+          panel.classList.add("active");
+        }
+      }
+
+      tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const tab = button.getAttribute("data-tab");
+          setActiveTab(tab);
+        });
       });
-    });
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
-    const lightboxCaption = document.getElementById("lightboxCaption");
-    const lightboxClose = document.getElementById("lightboxClose");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxCaption = document.getElementById("lightboxCaption");
+      const lightboxClose = document.getElementById("lightboxClose");
 
-    document.querySelectorAll(".gallery-item img").forEach(img => {
-      img.addEventListener("click", () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt || "";
-        lightboxCaption.textContent = img.getAttribute("data-caption") || "";
-        lightbox.classList.add("open");
+      document.querySelectorAll(".gallery-item img").forEach(img => {
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt || "";
+          lightboxCaption.textContent = img.getAttribute("data-caption") || "";
+          lightbox.classList.add("open");
+        });
       });
-    });
 
-    lightboxClose.addEventListener("click", () => {
-      lightbox.classList.remove("open");
-    });
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
+      lightboxClose.addEventListener("click", () => {
         lightbox.classList.remove("open");
-      }
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove("open");
+        }
+      });
+
+      const PASSWORD = "charlie123";
+
+      const lockOverlay = document.getElementById("lockOverlay");
+      const lockForm = document.getElementById("lockForm");
+      const lockPasswordInput = document.getElementById("lockPassword");
+      const lockError = document.getElementById("lockError");
+      const mainContent = document.getElementById("mainContent");
+
+      lockForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const value = lockPasswordInput.value.trim().toLowerCase();
+        const correct = PASSWORD.toLowerCase();
+        if (value === correct) {
+          lockOverlay.classList.add("hidden");
+          mainContent.classList.remove("hidden");
+          lockPasswordInput.value = "";
+          lockError.textContent = "";
+        } else {
+          lockError.textContent = "that’s not the secret. try again ❤️";
+          lockPasswordInput.value = "";
+          lockPasswordInput.focus();
+        }
+      });
     });
-
-    const PASSWORD = "charlie123";
-
-    const lockOverlay = document.getElementById("lockOverlay");
-    const lockForm = document.getElementById("lockForm");
-    const lockPasswordInput = document.getElementById("lockPassword");
-    const lockError = document.getElementById("lockError");
-    const mainContent = document.getElementById("mainContent");
-
-    lockForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const value = lockPasswordInput.value.trim();
-      if (value === PASSWORD) {
-        lockOverlay.classList.add("hidden");
-        mainContent.classList.remove("hidden");
-        lockPasswordInput.value = "";
-        lockError.textContent = "";
-      } else {
-        lockError.textContent = "that’s not the secret. try again ❤️";
-        lockPasswordInput.value = "";
-        lockPasswordInput.focus();
-      }
-    });
-
   </script>
 </body>
 </html>
