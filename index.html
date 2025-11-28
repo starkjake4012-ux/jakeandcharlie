@@ -609,6 +609,21 @@
         overflow-y: auto;
       }
     }
+
+    #lockOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+#mainContent {
+  display: none;
+}
+
   </style>
 </head>
 <body>
@@ -830,19 +845,24 @@
     const lockError = document.getElementById("lockError");
     const mainContent = document.getElementById("mainContent");
 
-    function tryUnlock() {
-      const value = lockPasswordInput.value.trim();
-      if (value.toLowerCase() === PASSWORD.toLowerCase()) {
-        lockOverlay.style.display = "none";
-        mainContent.style.display = "block";
-        lockPasswordInput.value = "";
-        lockError.textContent = "";
-      } else {
-        lockError.textContent = "that’s not the secret. try again ❤️";
-        lockPasswordInput.value = "";
-        lockPasswordInput.focus();
-      }
-    }
+   lockForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const value = lockPasswordInput.value.trim().toLowerCase();
+  const correct = PASSWORD.toLowerCase();
+
+  if (value === correct) {
+    // the magic trio of fixes for iOS
+    lockOverlay.style.opacity = "0";
+    lockOverlay.style.pointerEvents = "none";
+    lockOverlay.style.display = "none"; // THE FIX for iPhone
+    mainContent.style.display = "block";
+  } else {
+    lockError.textContent = "that’s not the secret. try again ❤️";
+    lockPasswordInput.value = "";
+    lockPasswordInput.focus();
+  }
+});
+
 
     lockButton.addEventListener("click", tryUnlock);
 
